@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-mirtilo: #4A2545;
+  --color-mirtilo-light: #6B3566;
+  --color-caramelo: #C8853A;
+  --color-caramelo-light: #E09B4A;
+  --color-verde: #2D7A4F;
+  --color-creme: #FDFBF7;
+  --color-branco: #FFFFFF;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { font-family: var(--font-sans); background: var(--color-creme); color: #1a1a1a; }
+
+/* TipTap editor styles */
+.ProseMirror {
+  outline: none;
+  min-height: 400px;
+}
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #aaa;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Blog post prose overrides */
+.prose h2 { color: #4A2545; font-weight: 800; }
+.prose h3 { color: #4A2545; font-weight: 700; }
+.prose a { color: #C8853A; }
+.prose blockquote { border-left-color: #C8853A; background: #FFF8F0; border-radius: 0 8px 8px 0; padding: 12px 20px; }
+
+/* CTA block rendered inside posts */
+.cta-block {
+  background: linear-gradient(135deg, #4A2545, #6B3566);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  margin: 32px 0;
+  color: white;
+}
+.cta-block p { color: rgba(255,255,255,0.85); margin: 0 0 16px; }
+.cta-block a {
+  display: inline-block;
+  background: #C8853A;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: filter 0.2s;
+}
+.cta-block a:hover { filter: brightness(1.1); }
