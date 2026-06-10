@@ -12,6 +12,7 @@ export default function Blog() {
   const [activeTag, setActiveTag] = useState(null)
 
   useEffect(() => {
+    document.title = 'Blog do Pitada | Precificação, Gestão e Dicas para Confeiteiras'
     getPosts({ status: 'publicado' })
       .then(setPosts)
       .catch(console.error)

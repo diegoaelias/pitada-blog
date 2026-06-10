@@ -24,7 +24,12 @@ export default function BlogPost() {
 
   useEffect(() => {
     getPostBySlug(slug)
-      .then(setPost)
+      .then(data => {
+        setPost(data)
+        if (data && data.titulo) {
+          document.title = `${data.titulo} | Blog do Pitada`
+        }
+      })
       .catch(() => navigate('/', { replace: true }))
       .finally(() => setLoading(false))
   }, [slug, navigate])
